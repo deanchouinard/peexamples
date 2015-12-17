@@ -24,3 +24,13 @@ IO.puts tfizz.(13)
 IO.puts tfizz.(14)
 IO.puts tfizz.(15)
 IO.puts tfizz.(16)
+
+IO.puts "==Functions-4=="
+
+prefix = fn str1 -> (fn str2 -> "#{str1} #{str2}" end) end
+
+first = prefix.("First")
+IO.puts first.("second")
+IO.puts prefix.("One").("Two")
+
+
