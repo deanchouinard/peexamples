@@ -14,5 +14,19 @@ defmodule MyList do
 
   def nsum([]), do: 0
   def nsum([head|tail] ), do: head + nsum(tail)
+
+  def reduce([], value, _) do
+    value
+  end
+  def reduce([head|tail], value, func) do
+    reduce(tail, func.(head, value), func)
+  end
+
+  def mapsum(list, func), do: _mapsum(list, func, 0)
+  def _mapsum([], func, total), do: total
+  def _mapsum([head|tail], func, total) do
+    _mapsum(tail, func, total + func.(head))
+  end
+
 end
 
