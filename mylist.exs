@@ -1,4 +1,5 @@
 defmodule MyList do
+
   def len([]), do: 0
   def len([_head|tail]), do: 1 + len(tail)
 
@@ -36,6 +37,13 @@ defmodule MyList do
   end
   def _max([head|tail], value) when head < value do
     _max(tail, value)
+  end
+
+  def caesar([]), do: 0
+  def caesar([head|tail]) do
+    IO.puts(head)
+    IO.puts([head])
+    caesar(tail)
   end
 
 end
