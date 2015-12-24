@@ -45,5 +45,19 @@ defmodule MyList do
     do: [head+n | caesar(tail, n)]
   def caesar([head|tail], n),
     do: [head+n-26 | caesar(tail, n)]
+
+
+# Lists-4
+  def span(from, to) do
+    Enum.to_list(Range.new(from, to))
+  end
+
+  # Dave's solution
+  def dspan(from, to) when from > to, do: []
+  def dspan(from, to) do
+    [ from |span(from+1, to) ]
+  end
+  
+
 end
 
