@@ -27,6 +27,8 @@ defmodule Scheduler do
       {:ready, pid} when length(queue) > 0 ->
         [next | tail] = queue
         send pid, {:fib, next, self}
+        IO.puts "send #{length(queue)}"
+        IO.inspect(processes)
         schedule_processes(processes, tail, results)
 
       {:ready, pid} ->
